@@ -1,18 +1,19 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
-public class ATM extends Account {
-    Scanner input = new Scanner(System.in);
+public class ATM {
 
-    public ATM(int accountPin, int accountNumber, double accountBalance) {
-        super(accountPin, accountNumber, accountBalance);
+    private List<Account> account;
+
+    public ATM(List<Account> account) {
+        this.account = new ArrayList<>();
     }
 
     HashMap<Integer, Integer> data = new HashMap<>();
 
     public void getLogin() {
-        //int x = 1;
-        do{
             try{
                 data.put(1001, 123);
                 data.put(1002, 123);
@@ -34,13 +35,11 @@ public class ATM extends Account {
                 }
             }
             catch(Exception e){
-                System.out.println("\nInvalid Account Number or PIN\n");
+                System.out.println("Invalid Account Number or PIN");
                 getLogin();
             }
-
-
-        }while(true);
     }
+
 
     public void getAccountType() {
         System.out.println("Select your account type: ");
